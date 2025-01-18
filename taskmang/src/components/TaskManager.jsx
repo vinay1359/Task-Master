@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { PlusCircle, X, MoveRight, MoveLeft, Edit2, Search, Tag, Calendar, Filter, AlertCircle, Bell} from 'lucide-react';
+import { PlusCircle, X, MoveRight, MoveLeft, Edit2, Search, Tag, Calendar, Filter, AlertCircle, Bell, CheckCircle, Clock, Info} from 'lucide-react';
 
 const TaskManager = () => {
   const [tasks, setTasks] = useState(() => {
