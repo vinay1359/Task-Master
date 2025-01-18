@@ -27,9 +27,9 @@ const TaskManager = () => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);
 
-  // Check for due tasks and send notifications
+
   useEffect(() => {
-    // Request notification permission
+  
     const requestNotificationPermission = async () => {
       if ("Notification" in window) {
         const permission = await Notification.requestPermission();
@@ -38,7 +38,6 @@ const TaskManager = () => {
     };
     requestNotificationPermission();
 
-    // Check for due tasks every minute
     const checkDueTasks = () => {
       const now = new Date();
       tasks.forEach(task => {
@@ -58,7 +57,7 @@ const TaskManager = () => {
             }
           }
           
-          // Notify on due date
+      
           if (timeDiff <= 0 && timeDiff > -60000) { // Within the last minute
             const hasNotified = localStorage.getItem(`notified_due_${task.id}`);
             if (!hasNotified && notificationPermission === 'granted') {
@@ -73,19 +72,18 @@ const TaskManager = () => {
       });
     };
 
-    const intervalId = setInterval(checkDueTasks, 60000); // Check every minute
+    const intervalId = setInterval(checkDueTasks, 60000); 
     
-    // Initial check
+    
     checkDueTasks();
 
-    // Cleanup
     return () => clearInterval(intervalId);
   }, [tasks, notificationPermission]);
 
-  // Custom categories
+  
   const categories = ['Work', 'Personal', 'Shopping', 'Health', 'Learning'];
   
-  // Custom labels
+  
   const availableLabels = ['Urgent', 'Quick Win', 'Long-term', 'Need Help', 'Important'];
 
   
@@ -96,20 +94,20 @@ const TaskManager = () => {
     completed: { title: 'Completed', color: 'bg-green-100', icon: Tag }
   };
 
-  // Show notification helper
+
   const showNotify = (message) => {
     setNotificationMessage(message);
     setShowNotification(true);
     setTimeout(() => setShowNotification(false), 3000);
   };
 
-  // Task operations
+
   const addOrUpdateTask = (e) => {
     e.preventDefault();
     if (editingTask) {
       setTasks(tasks.map(task => {
         if (task.id === editingTask.id) {
-          // Clear notification flags when task is updated
+        
           localStorage.removeItem(`notified_${task.id}`);
           localStorage.removeItem(`notified_due_${task.id}`);
           return { ...task, ...newTask };
@@ -154,7 +152,7 @@ const TaskManager = () => {
     showNotify('Task deleted!');
   };
 
-  // Drag and drop handlers
+  
   const handleDragStart = (task) => {
     setDraggedTask(task);
   };
@@ -173,7 +171,7 @@ const TaskManager = () => {
     }
   };
 
-  // Filter tasks
+  
   const filterTasks = (task) => {
     const matchesSearch = task.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          task.description.toLowerCase().includes(searchTerm.toLowerCase());
@@ -182,7 +180,7 @@ const TaskManager = () => {
     return matchesSearch && matchesPriority && matchesCategory;
   };
 
-  // Progress calculation
+  
   const calculateProgress = () => {
     const total = tasks.length;
     const completed = tasks.filter(task => task.status === 'completed').length;
@@ -191,7 +189,7 @@ const TaskManager = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-8">
-{/* Add notification permission button if not granted */}
+
 {notificationPermission !== 'granted' && (
         <div className="mb-4 p-4 bg-yellow-100 rounded-lg flex items-center gap-2">
           <Bell size={20} />
