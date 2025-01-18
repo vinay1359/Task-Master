@@ -5,12 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
     "serve": "vite preview",
     "clean": "rm -rf node_modules && rm -rf dist && rm -rf package-lock.json",
-    "postinstall": "chmod -R 755 node_modules"
+    "postinstall": "chmod -R 755 node_modules",
+    "build": "npm install -g vite && vite build"
   },
-  "build": "npm install -g vite && vite build",
+  
   "dependencies": {
     "lucide-react": "^0.263.1",
     "react": "^18.2.0",
