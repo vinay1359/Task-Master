@@ -219,6 +219,35 @@ const TaskManager = () => {
             </button>
           </div>
 
+          
+        {/* Feature Cards */}
+        <div className="grid md:grid-cols-3 gap-6 mb-8">
+          <Card className="bg-blue-50">
+            <CardContent className="p-6">
+              <Clock className="mb-3 text-blue-600" size={24} />
+              <h3 className="font-semibold mb-2">Smart Time Management</h3>
+              <p className="text-gray-600">Organize tasks with priorities and deadlines to stay on track and never miss important deadlines.</p>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-purple-50">
+            <CardContent className="p-6">
+              <CheckCircle className="mb-3 text-purple-600" size={24} />
+              <h3 className="font-semibold mb-2">Progress Tracking</h3>
+              <p className="text-gray-600">Monitor your productivity with visual progress indicators and completion statistics.</p>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-green-50">
+            <CardContent className="p-6">
+              <Info className="mb-3 text-green-600" size={24} />
+              <h3 className="font-semibold mb-2">Categories & Filters</h3>
+              <p className="text-gray-600">Easily categorize and filter tasks by priority, status, and custom categories.</p>
+            </CardContent>
+          </Card>
+        </div>
+
+
           {/* Progress Bar */}
           <div className="bg-white p-4 rounded-lg shadow">
             <div className="flex justify-between mb-2">
