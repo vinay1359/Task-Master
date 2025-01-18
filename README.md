@@ -8,16 +8,16 @@ Your ultimate productivity companion, designed to streamline task management wit
 
 ## 🚀 Features
 
-- Smart Time Management
+- ### Smart Time Management
 
     Organize tasks by priorities and deadlines to stay on track    and never miss important events.
-- Progress Tracking
+- ### Progress Tracking
 
     Monitor productivity through visual indicators and completion statistics for an enhanced workflow.
-- Categories & Filters
+- ### Categories & Filters
 
     Easily categorize tasks by priority, status, and custom categories for a seamless experience.
-- Modern UI
+- ### Modern UI
 
     Intuitive, user-friendly, and visually appealing design tailored for maximum focus.
 
